@@ -1,7 +1,6 @@
 from django.db import models
 
-
-class Users(models.Model):
+class User(models.Model):
     name = models.CharField(max_length=200)
 
     def __unicode__(self):
@@ -13,20 +12,24 @@ class Resource(models.Model):
     def __unicode__(self):
         return self.name
 
-class Using(models.Model):
-    user = models.ForeignKey(Users)
+class Relationship(models.Model):
+    user = models.ForeignKey(User)
     resource = models.ForeignKey(Resource)
 
+    def __unicode__(self):
+        return self.resource.name + "-" + self.user.name
+
+class Using(models.Model):
+    relationship = models.ForeignKey(Relationship)
+    time = models.DateTimeField(auto_now_add=True)
+
+    def __unicode__(self):
+        return self.relationship.resource.name + "-" + self.relationship.user.name
+
 class Waiting(models.Model):
-    user = models.ForeignKey(Users)
-    resource = models.ForeignKey(Resource)
+    relationship = models.ForeignKey(Relationship)
     time = models.DateTimeField(auto_now_add=True,)
 
     def __unicode__(self):
-        return self.time
-
-class Relationship(models.Model):
-    user = models.ForeignKey(Users)
-    resource = models.ForeignKey(Resource)
-
+        return self.relationship.resource.name + "-" + self.relationship.user.name
 
