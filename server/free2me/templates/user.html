@@ -1,6 +1,14 @@
-{% if user_found %}
-The user has relationship with:
+{% if user %}
+The user {{user}}  has relationship with:
+    {% if relationship %}
+        {% for relation in relationship  %}
+            {{  relation.resource }};
+        {% endfor %}
+    {% else %}
+        <p>No resources are relationed.</p>
+    {% endif %}
+
 {% else %}
-Nobody found.
+    Nobody found.
 {% endif%}
 

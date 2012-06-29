@@ -1,0 +1,11 @@
+Actualy waiting state:
+{% if waiting %}
+    {% for waited in waiting  %}
+    <BR>{{ waited.relationship.user }} waiting for {{ waited.relationship.resource }} ;
+    {% endfor %}
+{% else %}
+    <p>Nobody waiting.</p>
+{% endif %}
+
+
+

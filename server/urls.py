@@ -4,17 +4,12 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 admin.autodiscover()
 
-urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'server.views.home', name='home'),
-    # url(r'^server/', include('server.foo.urls')),
-
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
-    url(r'^admin/', include(admin.site.urls)),
-    url(r'^$','server.free2me.views.index'),
-    url(r'^user/(?P<user_name>\w+)/$', 'server.free2me.views.user'),
+urlpatterns = patterns('server.free2me.views',
+    (r'^admin/', include(admin.site.urls)),
+    (r'^$','index'),
+    (r'^user/(?P<user_name>\w+)/$', 'user'),
+    (r'^resource/(?P<resource_name>\w+)/$', 'resource'),
+    (r'^using/$', 'using'),
+    (r'^waiting/$', 'waiting')
 )
 
