@@ -1,0 +1,31 @@
+ <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+  <HEAD>
+      <TITLE>Free2Me</TITLE>
+  </HEAD>
+    
+    <BODY>
+    <P aling="center"><H1>Welcome to Free2Me</H1></P>
+
+    {% if users %}
+    <ul>
+      <h2>== Users List == </h2>
+      {% for user in users %}
+        <li>{{ user.name }}</li>
+      {% endfor %}
+    </ul>
+    {% else %}
+      <p>No users are available.</p>
+    {% endif %}
+
+    {% if resources %}
+    <ul>
+      <h2>== Resources List ==</h2>
+      {% for resource in resources %}
+        <li>{{ resource.name }}</li>
+      {% endfor %}
+    </ul>
+    {% else %}
+      <p>No resources are available.</p>
+    {% endif %}
+    </BODY>
+
