@@ -28,3 +28,4 @@ pip-log.txt
 
 #Temporary files VIM
 *~
+*.swp
