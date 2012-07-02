@@ -1,0 +1,11 @@
+There are some resources, they are:
+{% if resources %}
+    {% for resource in resources  %}
+        {{ resource }} ;
+    {% endfor %}
+{% else %}
+    <p>Nothing resource.</p>
+{% endif %}
+
+
+
