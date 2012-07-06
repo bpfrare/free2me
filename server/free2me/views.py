@@ -1,6 +1,5 @@
 from django.shortcuts import render_to_response, get_object_or_404, get_list_or_404
 from server.free2me.models import User,Resource,Relationship,Using,Waiting
-from django.http import HttpResponseRedirect
 
 def index(request):
     users = User.objects.all()
@@ -29,7 +28,7 @@ def waiting(request):
     waiting = Waiting.objects.all()
     return render_to_response(  './waiting.html', {'waiting':waiting})
 
-def pop_use(request):
+def push_use(request):
     try:
         use = get_object_or_404(Using, name=request.POST['user'])
     except (KeyError, Using.DoesNotExist):
@@ -45,4 +44,10 @@ def pop_use(request):
         return render_to_response('./use_pop.html',{'use':use})
     else:
         return render_to_response('./NOTFOUND.html',{'item':"Connection between datas"})
+
+def form_use(request):
+    relationship = Relationship.objects.all()
+    return render_to_response('./form_use.html', {'relationship':relationship})
+
+
 

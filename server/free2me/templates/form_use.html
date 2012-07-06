@@ -1,0 +1,11 @@
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+<p>Choice a relationship to add into queue of using. </p>
+<form action="../push_use/" method="post">
+    {% for relation in relationship %}
+    <input type="radio" name="user"     id="{{ relation }}" value="{{  relation.user   }}" />
+    <label for="{{ relation }}">{{ relation.user }}</label>
+    <input type="radio" name="resource" id="{{ relation }}" value="{{ resource.resource}}" />
+    <label for="{{ relation }}">{{ relation.resource }}</label><br />
+    {% endfor %}
+          <input type="submit" value=" Add " />
+</form>
