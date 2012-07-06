@@ -41,7 +41,7 @@ def push_use(request):
 
     if (use.resource.name == resource.name):
         # It is necessary complete this step, adding tasks into queue.
-        return render_to_response('./use_pop.html',{'use':use})
+        return render_to_response('./using/')
     else:
         return render_to_response('./NOTFOUND.html',{'item':"Connection between datas"})
 
