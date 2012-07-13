@@ -46,7 +46,7 @@ def push_use(request):
         return render_to_response('./NOTFOUND.html',{'item':"Connection between datas"})
 
 def form_use(request):
-    relationship = Relationship.objects.all()
+    relationship = Relationship.objects.filter(user = request.user)
     return render_to_response('./form_use.html', {'relationship':relationship})
 
 
